@@ -17,8 +17,7 @@ class CategoryResponse:
         self.pic_list = pics
 
 
-dir_root = "/Users/carl/PycharmProjects/babylearnpic"
-parser = InfoParser.PicParser(os.path.join(dir_root, "pictures.xlsx"))
+parser = InfoParser.PicParser(os.path.join(os.path.abspath('.'), "pictures.xlsx"))
 parser.parse()
 pic_info_list = parser.picList
 
@@ -30,8 +29,10 @@ for pic_info in pic_info_list:
         pic_list = [pic_info]
         pic_dic[pic_info.category] = pic_list
 
+dir_root = os.path.abspath("../docs/request/categories")
 for key, pic_list in pic_dic.items():
     response = CategoryResponse(pic_list)
     fp = file(os.path.join(dir_root, key + '.json'), 'w')
+    fp.write("")
     print key
     print json.dump(obj=response, cls=MyEncoder, fp=fp, indent=4)

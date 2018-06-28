@@ -31,7 +31,7 @@ class PicParser:
         sys.setdefaultencoding('utf-8')
         xlsx_file = xlrd.open_workbook(self.filePath)
         # 读取第一sheet
-        info_sheet = xlsx_file.sheet_by_index(0)
+        info_sheet = xlsx_file.sheet_by_name(u"所有图片")
         row = 1
         while row < len(info_sheet._cell_values):
             row_data = info_sheet.row_values(row)

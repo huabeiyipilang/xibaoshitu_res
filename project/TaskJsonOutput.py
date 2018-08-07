@@ -17,7 +17,7 @@ class CategoryResponse:
         self.pic_list = pics
 
 
-parser = InfoParser.PicParser(os.path.join(os.path.abspath('.'), "pictures.xlsx"))
+parser = InfoParser.PicParser(os.path.join(os.path.abspath('.'), "识图.xlsx"))
 parser.parse()
 pic_info_list = parser.picList
 
